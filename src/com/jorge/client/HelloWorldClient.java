@@ -1,14 +1,17 @@
 package com.jorge.client;
 
+import org.apache.log4j.BasicConfigurator;
 import org.hibernate.Session;
 
 import com.jorge.pojo.Message;
-import com.jorge.pojo.MessageJPA;
 import com.jorge.util.HibernateUtil;
 
 public class HelloWorldClient {
 
 	public static void main(String[] args){
+		BasicConfigurator.configure(); // Necessary for configure log4j. It must be the first line in main method
+									   // log4j.properties must be in /src directory
+		System.out.println("Main method: log4j configured correctly");
 		
 		System.out.println("Main method: getting session factory form HibernateUtil.java");
 		Session session = HibernateUtil.getSessionFactory().openSession();

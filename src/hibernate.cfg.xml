@@ -17,13 +17,13 @@
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
 		
-		<!-- Drop and re-create the database schema on startup, losing all data in tables -->
+		<!-- Drop and re-create the database schema on startup, deleting all data in tables -->
         <!-- property name="hbm2ddl.auto">create</property -->
         
-        <!-- Using hbm mapping file -->
+        <!-- Using hbm mapping file (XML-based metadata) -->
 		<mapping resource="com/jorge/pojo/Message.hbm.xml"/> 
 		
-		<!--  Using JPA -->
+		<!--  Using JPA annotations (annotation-based metadata) -->
 		<!-- mapping class="com.jorge.pojo.MessageJPA"/ -->
 		
 	</session-factory>

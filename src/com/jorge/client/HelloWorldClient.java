@@ -45,7 +45,7 @@ public class HelloWorldClient {
 	
 			//Finding objects
 			System.out.println("Main method: finding object");
-			Message msg = (Message) session.get(Message.class, 3L); // 3L = line 3 in DB. L is for its type (ID field is Long type). get(Message.class, 3L) needs a default constructor in Message.java
+			Message msg = (Message) session.get(Message.class, 3L); // 3L = row 3 in DB. L refers to its type (ID field is Long type in Message.java). get(Message.class, 3L) needs a default constructor in Message.java
 			System.out.println("Main method: object found, row 3 in DB: " + msg.toString());
 			
 			//Updating objects

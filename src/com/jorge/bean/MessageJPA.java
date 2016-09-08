@@ -1,4 +1,4 @@
-package com.jorge.pojo;
+package com.jorge.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 // Class using JPA annotations. We don't need Message.hbm.xml mapping file
-//It will be <mapping class="com.jorge.pojo.MessageJPA"/> in hibernate.cfg.xml config file
+//It will be <mapping class="com.jorge.bean.MessageJPA"/> in hibernate.cfg.xml config file
 @Entity
 @Table(name="message")
 public class MessageJPA {

@@ -1,7 +1,7 @@
-package com.jorge.pojo;
+package com.jorge.bean;
 
 // Persistent class. This class uses Message.hbm.xml mapping file
-// It will be <mapping resource="com/jorge/pojo/Message.hbm.xml"/> in hibernate.cfg.xml config file
+// It will be <mapping resource="com/jorge/bean/Message.hbm.xml"/> in hibernate.cfg.xml config file
 public class Message {
 
 	private Long id; // Identifier attribute

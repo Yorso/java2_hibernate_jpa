@@ -4,7 +4,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.jorge.pojo.Message;
+import com.jorge.bean.Message;
 import com.jorge.util.HibernateUtil;
 
 public class HelloWorldClient {

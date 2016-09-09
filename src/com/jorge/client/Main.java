@@ -5,11 +5,15 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.jorge.bean.Message;
+//import com.jorge.entity.Message;
 import com.jorge.util.HibernateUtil;
 
-public class HelloWorldClient {
+public class Main {
 
 	public static void main(String[] args){
+		final String beanPackage = "com.jorge.bean";
+		String mssg = "using Message.hbm.xml file (XML-based metadata)";
+		
 		BasicConfigurator.configure(); // Necessary for configure log4j. It must be the first line in main method
 									   // log4j.properties must be in /src directory
 		System.out.println("Main method: log4j configured correctly");
@@ -22,10 +26,12 @@ public class HelloWorldClient {
 		session.beginTransaction(); // ==> session.getTransaction().begin();
 		
 		System.out.println("Main method: setting message in Message object");
-		Message message = new Message("Testing messages with Hibernate using hbm mapping file");// Using hbm mapping file, check hibernate.cfg.xml
-		System.out.println("Main method: Message: Testing messages with Hibernate using hbm mapping file");
-		//MessageJPA message = new MessageJPA("Testing messages with Hibernate using JPA");// Using JPA, check hibernate.cfg.xml
-		//System.out.println("Main method: Message: Testing messages with Hibernate using JPA");
+		Message message = new Message(); // Comment and uncomment "import" depending what Message.java class you want to use. Same for hibernate.cfx.xml
+		
+		if(message.getClass().getPackage() != null && message.getClass().getPackage().toString().indexOf(beanPackage) == -1)
+			mssg = "using JPA annotations (annotation-based metadata)";
+		message.setText("Testing messages with Hibernate " + mssg);
+		System.out.println("Main method: Message: Testing messages with Hibernate " + mssg);
 		
 		System.out.println("Main method: saving message in DB => INSERT INTO MESSAGE (TEXT) VALUES (?)");
 		session.save(message);
@@ -63,11 +69,15 @@ public class HelloWorldClient {
 			System.out.println("Main method: making commit of transactions");
     		txn.commit(); // Making commit
 		}	catch(Exception e) {
+				e.printStackTrace();
+				
     			if(txn != null){
     				System.err.println("Main method: something was wrong, making rollback of transactions");
     				txn.rollback(); // If something was wrong, we make rollback
     			}
-    			System.err.println("Main method: Exception: " + e.getMessage().toString());
+    			
+    			if(e.getMessage() != null)
+    				System.err.println("Main method: Exception: " + e.getMessage().toString());
 		}	finally {
 				if(session != null){
 					System.out.println("Main method: close session");

@@ -22,11 +22,11 @@
         <!-- Create if not exist or update database tables automatically using mapping metadata -->
         <property name="hbm2ddl.auto">update</property>
         
-        <!-- Using hbm mapping file (XML-based metadata) -->
+        <!-- Using hbm mapping file (XML-based metadata). Comment '<mapping class="..." />' below -->
 		<mapping resource="com/jorge/bean/Message.hbm.xml"/> 
 		
-		<!--  Using JPA annotations (annotation-based metadata) -->
-		<!-- mapping class="com.jorge.bean.MessageJPA"/ -->
+		<!--  Using JPA annotations (annotation-based metadata). Comment '<mapping resource="..."/>' above -->
+		<!--  mapping class="com.jorge.entity.Message"/ -->
 		
 	</session-factory>
 </hibernate-configuration>

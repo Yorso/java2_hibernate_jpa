@@ -1,4 +1,4 @@
-package com.jorge.bean;
+package com.jorge.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 // Class using JPA annotations. We don't need Message.hbm.xml mapping file
-//It will be <mapping class="com.jorge.bean.MessageJPA"/> in hibernate.cfg.xml config file
+//It will be <mapping class="com.jorge.entity.Message"/> in hibernate.cfg.xml config file
 @Entity
 @Table(name="message")
-public class MessageJPA {
+public class Message {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -21,9 +21,9 @@ public class MessageJPA {
 	@Column(name="TEXT")
 	private String text;
 	
-	public MessageJPA(){}
+	public Message(){}
 	
-	public MessageJPA(String text){
+	public Message(String text){
 		this.text = text;
 	}
 
@@ -45,6 +45,6 @@ public class MessageJPA {
 
 	@Override
 	public String toString() {
-		return "MessageJPA [id=" + id + ", text=" + text + "]";
+		return "Message [id=" + id + ", text=" + text + "]";
 	}
 }

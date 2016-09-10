@@ -51,20 +51,20 @@ public class Main {
 	
 			//Finding objects
 			System.out.println("Main method: finding object");
-			Message msg = (Message) session.get(Message.class, 3L); // 3L = row 3 in DB. L refers to its type (ID field is Long type in Message.java). get(Message.class, 3L) needs a default constructor in Message.java
-			System.out.println("Main method: object found, row 3 in DB: " + msg.toString());
+			Message msg = (Message) session.get(Message.class, 3L); // 3L = id 3 in DB. L refers to its type (ID field is Long type in Message.java). get(Message.class, 3L) needs a default constructor in Message.java
+			System.out.println("Main method: object found, id 3 in DB: " + msg.toString());
 			
 			//Updating objects
 			System.out.println("Main method: updating object");
 			msg = (Message) session.get(Message.class, 2L);
 			msg.setText("Changing text field in DB");
-			System.out.println("Main method: object updated, row 2 in DB: " + msg.toString());
+			System.out.println("Main method: object updated, id 2 in DB: " + msg.toString());
 			
 			//Deleting objects
 			System.out.println("Main method: deleting object");
 			msg = (Message) session.get(Message.class, 1L);  
 			session.delete(msg);
-			System.out.println("Main method: object deleted, row 1 in DB");
+			System.out.println("Main method: object deleted, id 1 in DB");
     
 			System.out.println("Main method: making commit of transactions");
     		txn.commit(); // Making commit
